@@ -1,12 +1,10 @@
 package personnages;
 
-public class Elfe extends Humanoide implements Travailler{
-    public Elfe(String nom, String sexe, int age) {
-        super(nom, sexe, age, 0, 0, 10);
+public class Elfe extends Personnage {
+
+    public Elfe(String nom, String sexe, int age){
+        super(nom,sexe,age, CategoriePersonnage.humanoide, TypePersonnage.Elfe);
     }
-    @Override
-    public void travailler() {
-    setTravail(true);
-    augmenterMagieMagie(2);
-    }
+
+
 }
