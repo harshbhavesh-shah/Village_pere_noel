@@ -5,5 +5,4 @@ public enum Farces{
     soupeBas,
     papierRouler,
     yeuxRemuant;
-
 }

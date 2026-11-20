@@ -5,7 +5,7 @@ public abstract class Personnage {
     private String nom, sexe;
     private int age, faim = 0, fatigue = 0, magie = 0;
 
-    public Personnage(String nom, String sexe, int age, int  faim,int fatigue,int magie) {
+    public Personnage(String nom, String sexe, int age, int faim, int fatigue, int magie) {
         this.nom = nom;
         this.sexe = sexe;
         this.age = age;
@@ -33,10 +33,11 @@ public abstract class Personnage {
     public void seMettreEnActivite() {
     }
 
-    public void baisserMagie(int valeur){
+    public void baisserMagie(int valeur) {
         magie -= valeur;
     }
 
-    public void augmenterMagie(int valeur){
+    public void augmenterMagie(int valeur) {
         magie += valeur;
     }
+}
