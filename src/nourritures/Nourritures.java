@@ -1,3 +1,5 @@
+package nourritures;
+
 public enum Nourritures{
     BISCUITS(3),
     CHOCOLATSCHAUD(5),

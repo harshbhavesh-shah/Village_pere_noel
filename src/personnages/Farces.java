@@ -1,3 +1,5 @@
+package personnages;
+
 public enum Farces{
     laitMagique,
     soupeBas,

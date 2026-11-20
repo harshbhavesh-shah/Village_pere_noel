@@ -1,3 +1,5 @@
+package personnages;
+
 public abstract class Humanoide extends Personnage{
     private boolean auTravail;
     public Humanoide(String nom, String sexe, int age, int faim, int fatigue, int magie) {
