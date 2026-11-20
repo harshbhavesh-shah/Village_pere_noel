@@ -1,13 +1,12 @@
 package batiments;
 
-import personnages.CategoriePersonnage;
-import personnages.TypePersonnage;
+import personnages.Personnage;
 
 public class Enclos extends Batiment{
 
-    private TypePersonnage type;
+    private Class<? extends Personnage> type;
 
-    public Enclos(int superficie, int capacite, TypePersonnage type) {
+    public Enclos(int superficie, int capacite, Class<? extends Personnage> type) {
         super(superficie, capacite, Proprete.bon);
         this.type = type;
     }
