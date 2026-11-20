@@ -5,9 +5,10 @@ public class BonshommeDeNeige extends Creature implements EtreFantastique{
         super(nom, sexe, age, 0, 0, 10);
     }
     private Integer vie;
+
     // faire le système de perte d'HP
     @Override
     public void etreFantastique(){
-        augmenterMagieMagie(2);
+        augmenterMagie(2);
     }
 }
