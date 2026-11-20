@@ -1,7 +1,8 @@
 package personnages;
 
-public class Renne extends Personnage {
-    public Renne(String nom, String sexe, int age){
-        super(nom,sexe,age, CategoriePersonnage.creature, TypePersonnage.Renne);
+public class Renne extends Creature {
+    public Renne(String nom, String sexe, int age) {
+        super(nom, sexe, age, 0, 0, 10);
     }
+
 }
