@@ -1,6 +1,5 @@
 package batiments;
 
-import personnages.Elfe;
 import personnages.Humanoide;
 import personnages.Personnage;
 import personnages.Travailler;
