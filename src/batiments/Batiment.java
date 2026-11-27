@@ -1,18 +1,16 @@
 package batiments;
 
-import personnages.CategoriePersonnage;
 import personnages.Personnage;
-import personnages.TypePersonnage;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Batiment {
+public abstract class Batiment {
     private int superficie, capacite;
     private Proprete degreProprete;
     private List<Personnage> personnages;
-    private CategoriePersonnage categorieAutorise = null;
-    private TypePersonnage[] typesAutorise;
+    private Class<? extends Personnage> categorieAutorise = null;
+    private Class<? extends Personnage>[] typesAutorise;
 
     public Batiment(int superficie, int capacite, Proprete degreProprete) {
         this.superficie = superficie;
@@ -41,28 +39,30 @@ public class Batiment {
     }
 
 
-    public TypePersonnage[] getTypesAutorise() {
+    public Class<? extends Personnage>[] getTypesAutorise() {
         return typesAutorise;
     }
 
-    public void setTypesAutorise(TypePersonnage[] typesAutorise) {
+    public void setTypesAutorise(Class<? extends Personnage>[] typesAutorise) {
         this.typesAutorise = typesAutorise;
     }
 
-    public CategoriePersonnage getCategorieAutorise() {
+    public Class<? extends Personnage> getCategorieAutorise() {
         return categorieAutorise;
     }
 
-    public void setCategorieAutorise(CategoriePersonnage categorieAutorise) {
+    public void setCategorieAutorise(Class<? extends Personnage> categorieAutorise) {
         this.categorieAutorise = categorieAutorise;
     }
 
 
     public void rejoindre(Personnage p){
-        if (categorieAutorise != null && categorieAutorise == p.getCategorie()){
-            if (typesAutorise.length != 0 && Arrays.asList(typesAutorise).contains(p.getType())){
+        if (categorieAutorise != null && p.getClass() == categorieAutorise){
+            if (typesAutorise.length != 0 && Arrays.asList(typesAutorise).contains(p.getClass())){
                 personnages.add(p);
             }
         }
     }
+
+    public abstract void executerActivites() ;
 }
