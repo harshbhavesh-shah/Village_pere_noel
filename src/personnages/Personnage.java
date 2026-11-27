@@ -14,6 +14,10 @@ public abstract class Personnage {
         this.magie = magie;
     }
 
+    public String getSexe() {
+        return sexe;
+    }
+
     public void emettreSon() {
     }
 
