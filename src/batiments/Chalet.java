@@ -5,10 +5,25 @@ import personnages.Humanoide;
 import personnages.Personnage;
 import personnages.Travailler;
 
-public class Chalet extends Batiment{
+import java.util.Arrays;
 
-    public Chalet(int superficie, int capacite) {
+public class Chalet extends Batiment{
+    String sexe;
+
+    public Chalet(int superficie, int capacite, String sexe) {
         super(superficie, capacite, Proprete.bon);
+        this.sexe = sexe;
+    }
+
+    @Override
+    public void rejoindre(Personnage p){
+        if (categorieAutorise != null && p.getClass() == categorieAutorise){
+            if (typesAutorise.length != 0 && Arrays.asList(typesAutorise).contains(p.getClass())){
+                if (this.sexe.equals(p.getSexe())) {
+                    personnages.add(p);
+                }
+            }
+        }
     }
 
     @Override

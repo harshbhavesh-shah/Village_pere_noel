@@ -2,15 +2,16 @@ package batiments;
 
 import personnages.Personnage;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public abstract class Batiment {
-    private int superficie, capacite;
-    private Proprete degreProprete;
-    private List<Personnage> personnages;
-    private Class<? extends Personnage> categorieAutorise = null;
-    private Class<? extends Personnage>[] typesAutorise;
+    protected int superficie, capacite;
+    protected Proprete degreProprete;
+    protected List<Personnage> personnages = new ArrayList<>();
+    protected Class<? extends Personnage> categorieAutorise = null;
+    protected Class<? extends Personnage>[] typesAutorise;
 
     public Batiment(int superficie, int capacite, Proprete degreProprete) {
         this.superficie = superficie;
