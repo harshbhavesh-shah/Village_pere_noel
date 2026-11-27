@@ -15,7 +15,7 @@ public class Chalet extends Batiment{
 
     @Override
     public void rejoindre(Personnage p){
-        if (categorieAutorise != null && p.getClass() == categorieAutorise){
+        if (categorieAutorise != null && categorieAutorise.isInstance(p)){
             if (typesAutorise.length != 0 && Arrays.asList(typesAutorise).contains(p.getClass())){
                 if (this.sexe.equals(p.getSexe())) {
                     personnages.add(p);

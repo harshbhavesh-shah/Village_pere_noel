@@ -58,7 +58,7 @@ public abstract class Batiment {
 
 
     public void rejoindre(Personnage p){
-        if (categorieAutorise != null && p.getClass() == categorieAutorise){
+        if (categorieAutorise != null && categorieAutorise.isInstance(p) ){
             if (typesAutorise.length != 0 && Arrays.asList(typesAutorise).contains(p.getClass())){
                 personnages.add(p);
             }

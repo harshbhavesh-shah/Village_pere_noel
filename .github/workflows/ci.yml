@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+
+jobs:
+  analyze:
+    name: ${{ matrix.tool }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        tool: [pmd, spotbugs]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Cache PMD and SpotBugs downloads
+        uses: actions/cache@v4
+        with:
+          path: .tools
+          key: static-analysis-tools-${{ hashFiles('run_static_analysis.sh') }}
+
+      - name: Run ${{ matrix.tool }}
+        run: ./run_static_analysis.sh ${{ matrix.tool }}
+
+  coverage:
+    name: tests + jacoco
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Cache JaCoCo download
+        uses: actions/cache@v4
+        with:
+          path: .tools
+          key: jacoco-${{ hashFiles('run_coverage.sh') }}
+
+      - name: Run tests with coverage
+        run: ./run_coverage.sh
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: out/coverage/report
+          if-no-files-found: ignore
