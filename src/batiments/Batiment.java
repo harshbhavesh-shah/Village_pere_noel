@@ -5,7 +5,7 @@ import personnages.Personnage;
 import java.util.Arrays;
 import java.util.List;
 
-public class Batiment {
+public abstract class Batiment {
     private int superficie, capacite;
     private Proprete degreProprete;
     private List<Personnage> personnages;
@@ -63,4 +63,6 @@ public class Batiment {
             }
         }
     }
+
+    public abstract void executerActivites() ;
 }

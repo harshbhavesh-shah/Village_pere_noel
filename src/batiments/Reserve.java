@@ -27,4 +27,8 @@ public class Reserve extends Batiment{
     }
 
 
+    @Override
+    public void executerActivites() {
+
+    }
 }
